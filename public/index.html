@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Chat</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,18 +13,18 @@
             <div class="quem">
                 <div class="form">
                     <form>
-                        <input type="text" placeholder="Qual seu nome?">
+                        <input type="text" placeholder="Qual seu nome?" autofocus>
                         <button>Entrar</button>
                     </form>
                 </div>
             </div>
-            <div class="mensagens not">
+            <div class="mensagens not" id="msg">
                 <div class="before"></div>
   
             <div class="bottom">
                 <form class="enviar">
-                    <input class="mensagem" type="text" placeholder="Mensagem">
-                    <button style="display: none;"></button>
+                    <input class="mensagem" type="text" placeholder="Mensagem" autofocus>
+                    <button class="envio">Enviar</button>
                 </form>
             </div>
         </div>
