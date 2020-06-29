@@ -32,6 +32,14 @@ io.on('connection', socket => {
             data.msg = data.msg.replace("<script>","");
             data.username = data.username.replace("<script>","");
             data.username = data.username.replace("<script>","");
+            data.msg = data.msg.replace("</script>","");
+            data.msg = data.msg.replace("</script>","");
+            data.username = data.username.replace("</script>","");
+            data.username = data.username.replace("</script>","");
+            data.msg = data.msg.replace("<","");
+            data.msg = data.msg.replace(">","");
+            data.username = data.username.replace("<","");
+            data.username = data.username.replace(">","");
             messages.push(data)
             socket.broadcast.emit('receberMensagem', data)
         } else {
