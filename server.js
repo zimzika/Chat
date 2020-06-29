@@ -40,8 +40,10 @@ io.on('connection', socket => {
             data.msg = data.msg.replace(">","");
             data.username = data.username.replace("<","");
             data.username = data.username.replace(">","");
-            messages.push(data)
-            socket.broadcast.emit('receberMensagem', data)
+            setTimeout(() => {
+                 messages.push(data)
+                socket.broadcast.emit('receberMensagem', data)
+            }, 1000)
         } else {
             return;
         }
