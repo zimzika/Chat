@@ -10,8 +10,12 @@ var me = {}
 function enviarMensagemForm() {
     $(".enviar button").click(function () {
         if ($(".mensagem").val().length > 0) {
+            var msg = $(".mensagem").val().replace(/(<iframe.*?>.*?<\/iframe>)/g,"");
+            msg = $(".mensagem").val()(/(<script.*?>.*?<\/script>)/g,"");
+            me.username = me.username.replace(/(<script.*?>.*?<\/script>)/g,"");
+            me.username = me.username.replace(/(<script.*?>.*?<\/script>)/g,"");
             socket.emit('enviarMensagem', {
-                "msg": $(".mensagem").val(),
+                "msg": msg,
                 "username": me.username
             })
             receberMensagemMinhas({
@@ -26,6 +30,8 @@ function enviarMensagemForm() {
 function entrar() {
     $(".form button").click(function () {
         if ($(".form input").val().length > 0) {
+            me.username = $(".form input").val().replace(/(<script.*?>.*?<\/script>)/g,"");
+            me.username = $(".form input").val().replace(/(<script.*?>.*?<\/script>)/g,"");
             me = { "username": $(".form input").val() }
             getMensagensAntigas()
             $(".mensagens").removeClass("not")
