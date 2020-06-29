@@ -28,8 +28,10 @@ io.on('connection', socket => {
             //data.username = data.username.replace(/(<iframe.*?>.*?<\/iframe>)/g,"");
             //data.msg = data.msg.replace(/(<script.*?>.*?<\/script>)/g,"");
             //data.username = data.username.replace(/(<script.*?>.*?<\/script>)/g,"");
-            data.msg = data.msg.replace("<","");
-            data.username = data.username.replace("<","");
+            data.msg = data.msg.replace("<script>","");
+            data.msg = data.msg.replace("<script>","");
+            data.username = data.username.replace("<script>","");
+            data.username = data.username.replace("<script>","");
             messages.push(data)
             socket.broadcast.emit('receberMensagem', data)
         } else {
