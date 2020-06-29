@@ -24,10 +24,6 @@ io.on('connection', socket => {
     //Quando receber uma mensagem
     socket.on('enviarMensagem', data => {
         if (data.msg.length > 0 && data.username.length > 0) {
-            //data.msg = data.msg.replace(/(<iframe.*?>.*?<\/iframe>)/g,"");
-            //data.username = data.username.replace(/(<iframe.*?>.*?<\/iframe>)/g,"");
-            //data.msg = data.msg.replace(/(<script.*?>.*?<\/script>)/g,"");
-            //data.username = data.username.replace(/(<script.*?>.*?<\/script>)/g,"");
             data.msg = data.msg.replace("<script>","");
             data.msg = data.msg.replace("<script>","");
             data.username = data.username.replace("<script>","");
@@ -40,10 +36,8 @@ io.on('connection', socket => {
             data.msg = data.msg.replace(">","");
             data.username = data.username.replace("<","");
             data.username = data.username.replace(">","");
-            setTimeout(() => {
-                 messages.push(data)
-                socket.broadcast.emit('receberMensagem', data)
-            }, 1000)
+            messages.push(data)
+            socket.broadcast.emit('receberMensagem', data)
         } else {
             return;
         }

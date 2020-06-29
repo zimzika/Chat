@@ -1,4 +1,4 @@
-const socket = io('http://rolas-boas.herokuapp.com')
+const socket = io('http://localhost:3000')
 $("button").click(function () {
     return false;
 })
@@ -23,8 +23,18 @@ function enviarMensagemForm() {
     })
 }
 
+function submitUserForm() {
+    var response = grecaptcha.getResponse()
+    if (response.length == 0) {
+        return false
+    } else {
+        entrar()
+    }
+    return false;
+}
+
 function entrar() {
-    $(".form button").click(function () {
+    $(".btn").click(function () {
         if ($(".form input").val().length > 0) {
             me = { "username": $(".form input").val() }
             getMensagensAntigas()
@@ -34,13 +44,11 @@ function entrar() {
     })
 }
 
-function getMensagensAntigas(){
+function getMensagensAntigas() {
     socket.emit('mensagensAntigas', {})
 }
 
 enviarMensagemForm()
-entrar()
-
 
 function receberMensagem(objeto) {
     $(".mensagens .before").before(`
@@ -60,7 +68,7 @@ function receberMensagemMinhas(objeto) {
 socket.on('receberMensagem', function (objeto) {
     receberMensagem(objeto)
 })
-socket.on('antigasMensagens', function(msgs){
+socket.on('antigasMensagens', function (msgs) {
     $(".mensagens").html(`<div class="before"></div>
     <div class="bottom">
         <form class="enviar">
@@ -69,7 +77,7 @@ socket.on('antigasMensagens', function(msgs){
         </form>
     </div>`)
 
-    for(let i = 0; i < msgs.length; i++){
+    for (let i = 0; i < msgs.length; i++) {
         $(".mensagens .before").before(`
         <li class="left">${msgs[i].username}:<br>${msgs[i].msg}</li> <br><br><br>
         `)

@@ -110,7 +110,7 @@ html, body{
     z-index: 1000;
 }
 
-.quem .form{
+.name {
     top: 50%;
     left: 50%;
     position: absolute;
@@ -123,12 +123,28 @@ html, body{
     outline: none;
     background: #fff;
     color: #151515;
-    border-radius: 10px;
     padding: 10px;
 }
 
-.quem .form button{
+.g-recaptcha {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.btn {
     padding: 10px;
     outline: none;
     border: none;
+    top: 50%;
+    left: 59%;
+    position: absolute;
+    transform: translate(-50%);
+    cursor: pointer;
+    transition: .5s;
+}
+
+.btn:hover {
+    background-color: rgb(192, 189, 189);
 }
