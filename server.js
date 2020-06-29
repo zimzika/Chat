@@ -17,16 +17,21 @@ app.use('/', (req, res) => {
     res.render('index.html')
 })
 
+let messages = []
+
 io.on('connection', socket => {
     console.log(`Conectado com id ${socket.id}`)
     //Quando receber uma mensagem
     socket.on('enviarMensagem', data => {
-        if(data.msg.length > 0 && data.username.length > 0){
+        if (data.msg.length > 0 && data.username.length > 0) {
+            messages.push(data)
             socket.broadcast.emit('receberMensagem', data)
-        } else{
+        } else {
             return;
         }
-            
+    })
+    socket.on('mensagensAntigas', data => {
+        socket.emit('antigasMensagens', messages)
     })
 })
 
