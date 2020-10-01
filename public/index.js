@@ -1,4 +1,4 @@
-const socket = io('http://rolas-boas.herokuapp.com')
+const socket = io('http://localhost:3000')
 $("button").click(function () {
     return false;
 })
