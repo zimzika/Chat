@@ -17,7 +17,7 @@ app.use('/', (req, res) => {
     res.render('index.html')
 })
 
-let messages = []
+let messages = [];
 
 io.on('connection', socket => {
     console.log(`Conectado com id ${socket.id}`)
