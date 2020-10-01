@@ -23,16 +23,6 @@ function enviarMensagemForm() {
     })
 }
 
-function submitUserForm() {
-    var response = grecaptcha.getResponse()
-    if (response.length == 0) {
-        return false
-    } else {
-        entrar()
-    }
-    return false;
-}
-
 function entrar() {
     $(".btn").click(function () {
         if ($(".form input").val().length > 0) {
@@ -43,6 +33,8 @@ function entrar() {
         }
     })
 }
+
+entrar()
 
 function getMensagensAntigas() {
     socket.emit('mensagensAntigas', {})
