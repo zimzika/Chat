@@ -12,11 +12,8 @@
         <div class="chatContainer">
             <div class="quem">
                 <div class="form">
-                    <form method="POST" onsubmit="return submitUserForm()">
-                        <input type="text" class="name" placeholder="Qual seu nome?" autofocus>
-                        <div class="g-recaptcha" data-sitekey="6Ld2JqsZAAAAABYFkapzWJ-PL2ufF4iy5ogutJF6"></div>
-                        <input type="submit" value="Entrar" class="btn">
-                    </form>
+                    <input type="text" class="name" placeholder="Qual seu nome?" autofocus>
+                    <input type="submit" value="Entrar" class="btn">
                 </div>
             </div>
             <div class="mensagens not" id="msg">
@@ -34,6 +31,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="index.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 </html>
